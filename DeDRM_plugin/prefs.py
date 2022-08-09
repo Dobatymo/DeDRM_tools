@@ -10,7 +10,7 @@ import codecs, json
 import traceback
 
 from calibre.utils.config import dynamic, config_dir, JSONConfig
-from calibre_plugins.dedrm.__init__ import PLUGIN_NAME, PLUGIN_VERSION
+from .__init__ import PLUGIN_NAME, PLUGIN_VERSION
 from calibre.constants import iswindows, isosx
 
 class DeDRM_Prefs():
@@ -91,7 +91,7 @@ class DeDRM_Prefs():
 def convertprefs(always = False):
 
     def parseIgnobleString(keystuff):
-        from calibre_plugins.dedrm.ignoblekeygen import generate_key
+        from .ignoblekeygen import generate_key
         userkeys = []
         ar = keystuff.split(':')
         for keystring in ar:
@@ -108,7 +108,7 @@ def convertprefs(always = False):
         return userkeys
 
     def parseeReaderString(keystuff):
-        from calibre_plugins.dedrm.erdr2pml import getuser_key
+        from .erdr2pml import getuser_key
         userkeys = []
         ar = keystuff.split(':')
         for keystring in ar:

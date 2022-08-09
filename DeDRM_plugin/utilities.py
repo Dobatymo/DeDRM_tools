@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from calibre_plugins.dedrm.ignoblekeygen import generate_key
+from .ignoblekeygen import generate_key
 
 __license__ = 'GPL v3'
 

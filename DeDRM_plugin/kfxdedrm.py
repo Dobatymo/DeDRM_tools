@@ -17,7 +17,7 @@ from io import BytesIO
 try:
     from ion import DrmIon, DrmIonVoucher
 except:
-    from calibre_plugins.dedrm.ion import DrmIon, DrmIonVoucher
+    from .ion import DrmIon, DrmIonVoucher
 
 
 __license__ = 'GPL v3'

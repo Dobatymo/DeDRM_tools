@@ -247,7 +247,6 @@ class MobiBook:
         pass
 
     def __init__(self, infile):
-        print("MobiDeDrm v{0:s}.\nCopyright © 2008-2020 The Dark Reverser, Apprentice Harper et al.".format(__version__))
 
         try:
             from alfcrypto import Pukall_Cipher

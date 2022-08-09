@@ -22,12 +22,12 @@ from calibre.utils.config import dynamic, config_dir, JSONConfig
 from calibre.constants import iswindows, isosx
 
 # modules from this plugin's zipfile.
-from calibre_plugins.dedrm.__init__ import PLUGIN_NAME, PLUGIN_VERSION
-from calibre_plugins.dedrm.__init__ import RESOURCE_NAME as help_file_name
-from calibre_plugins.dedrm.utilities import uStrCmp
+from .__init__ import PLUGIN_NAME, PLUGIN_VERSION
+from .__init__ import RESOURCE_NAME as help_file_name
+from .utilities import uStrCmp
 
-import calibre_plugins.dedrm.prefs as prefs
-import calibre_plugins.dedrm.androidkindlekey as androidkindlekey
+from . import prefs as prefs
+from . import androidkindlekey as androidkindlekey
 
 class ConfigWidget(QWidget):
     def __init__(self, plugin_path, alfdir):
@@ -597,7 +597,7 @@ class AddBandNKeyDialog(QDialog):
         return str(self.cc_ledit.text()).strip()
 
     def retrieve_key(self):
-        from calibre_plugins.dedrm.ignoblekeyfetch import fetch_key as fetch_bandn_key
+        from .ignoblekeyfetch import fetch_key as fetch_bandn_key
         fetched_key = fetch_bandn_key(self.user_name,self.cc_number)
         if fetched_key == "":
             errmsg = "Could not retrieve key. Check username, password and intenet connectivity and try again."
@@ -672,7 +672,7 @@ class AddEReaderDialog(QDialog):
 
     @property
     def key_value(self):
-        from calibre_plugins.dedrm.erdr2pml import getuser_key as generate_ereader_key
+        from .erdr2pml import getuser_key as generate_ereader_key
         return codecs.encode(generate_ereader_key(self.user_name, self.cc_number),'hex')
 
     @property
@@ -707,7 +707,7 @@ class AddAdeptDialog(QDialog):
 
         try:
             if iswindows or isosx:
-                from calibre_plugins.dedrm.adobekey import adeptkeys
+                from .adobekey import adeptkeys
 
                 defaultkeys = adeptkeys()
             else:  # linux
@@ -778,7 +778,7 @@ class AddKindleDialog(QDialog):
 
         try:
             if iswindows or isosx:
-                from calibre_plugins.dedrm.kindlekey import kindlekeys
+                from .kindlekey import kindlekeys
 
                 defaultkeys = kindlekeys()
             else: # linux

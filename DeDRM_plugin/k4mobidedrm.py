@@ -75,23 +75,11 @@ import json
 class DrmException(Exception):
     pass
 
-if 'calibre' in sys.modules:
-    inCalibre = True
-else:
-    inCalibre = False
-
-if inCalibre:
-    from calibre_plugins.dedrm import mobidedrm
-    from calibre_plugins.dedrm import topazextract
-    from calibre_plugins.dedrm import kgenpids
-    from calibre_plugins.dedrm import androidkindlekey
-    from calibre_plugins.dedrm import kfxdedrm
-else:
-    import mobidedrm
-    import topazextract
-    import kgenpids
-    import androidkindlekey
-    import kfxdedrm
+from . import mobidedrm
+from . import topazextract
+from . import kgenpids
+from . import androidkindlekey
+from . import kfxdedrm
 
 # Wrap a stream so that output gets flushed immediately
 # and also make sure that any unicode strings get

@@ -25,7 +25,7 @@ import zlib
 try:
     import zipfilerugged
 except:
-    import calibre_plugins.dedrm.zipfilerugged as zipfilerugged
+    from . import zipfilerugged as zipfilerugged
 import os
 import os.path
 import getopt
